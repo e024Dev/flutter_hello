@@ -25,20 +25,20 @@ class App extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            buildBultton(cor: Colors.red, id: 1),
-            buildBultton(cor: Colors.orange, id: 2),
-            buildBultton(cor: Colors.yellow, id: 3),
-            buildBultton(cor: Colors.green, id: 4),
-            buildBultton(cor: Colors.blue, id: 5),
-            buildBultton(cor: Colors.indigo, id: 6),
-            buildBultton(cor: Colors.purple, id: 7),
+            buildButton(cor: Colors.red, id: 1),
+            buildButton(cor: Colors.orange, id: 2),
+            buildButton(cor: Colors.yellow, id: 3),
+            buildButton(cor: Colors.green, id: 4),
+            buildButton(cor: Colors.blue, id: 5),
+            buildButton(cor: Colors.indigo, id: 6),
+            buildButton(cor: Colors.purple, id: 7),
           ],
         ),
       ),
     );
   }
 
-  Widget buildBultton({required MaterialColor cor, required int id}) {
+  Widget buildButton({required MaterialColor cor, required int id}) {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(
