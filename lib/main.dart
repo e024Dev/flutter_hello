@@ -19,56 +19,36 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Xylophone', style: TextStyle(color: Colors.white54)),
-          backgroundColor: Colors.red.shade900,
-        ),
+        appBar: AppBar(title: Text('Xylophone')),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: GestureDetector(
-                onTap: () async => _playAudio(1),
-                child: Container(color: Colors.red),
-              ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () async => _playAudio(2),
-                child: Container(color: Colors.orange),
-              ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () async => _playAudio(3),
-                child: Container(color: Colors.yellow),
-              ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () async => _playAudio(4),
-                child: Container(color: Colors.green),
-              ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () async => _playAudio(5),
-                child: Container(color: Colors.cyan),
-              ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () async => _playAudio(6),
-                child: Container(color: Colors.blue),
-              ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () async => _playAudio(7),
-                child: Container(color: Colors.red),
-              ),
-            ),
+            buildBultton(cor: Colors.red, id: 1),
+            buildBultton(cor: Colors.orange, id: 2),
+            buildBultton(cor: Colors.yellow, id: 3),
+            buildBultton(cor: Colors.green, id: 4),
+            buildBultton(cor: Colors.blue, id: 5),
+            buildBultton(cor: Colors.indigo, id: 6),
+            buildBultton(cor: Colors.purple, id: 7),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildBultton({required MaterialColor cor, required int id}) {
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 4.0,
+          horizontal: id.toDouble() * 5,
+        ),
+        child: TextButton(
+          style: TextButton.styleFrom(backgroundColor: cor.shade300),
+          onPressed: () => _playAudio(id),
+          child: Text(''),
         ),
       ),
     );
