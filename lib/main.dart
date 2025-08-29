@@ -25,20 +25,35 @@ class App extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            buildButton(cor: Colors.red, id: 1),
-            buildButton(cor: Colors.orange, id: 2),
-            buildButton(cor: Colors.yellow, id: 3),
-            buildButton(cor: Colors.green, id: 4),
-            buildButton(cor: Colors.blue, id: 5),
-            buildButton(cor: Colors.indigo, id: 6),
-            buildButton(cor: Colors.purple, id: 7),
+            CustomButton(cor: Colors.red, id: 1, onTap: () => _playAudio(1)),
+            CustomButton(cor: Colors.orange, id: 2, onTap: () => _playAudio(2)),
+            CustomButton(cor: Colors.yellow, id: 3, onTap: () => _playAudio(3)),
+            CustomButton(cor: Colors.green, id: 4, onTap: () => _playAudio(4)),
+            CustomButton(cor: Colors.blue, id: 5, onTap: () => _playAudio(5)),
+            CustomButton(cor: Colors.indigo, id: 6, onTap: () => _playAudio(6)),
+            CustomButton(cor: Colors.purple, id: 7, onTap: () => _playAudio(7)),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget buildButton({required MaterialColor cor, required int id}) {
+class CustomButton extends StatelessWidget {
+  const CustomButton({
+    super.key,
+    required this.id,
+    required this.cor,
+    required this.onTap,
+  });
+
+  final int id;
+  final MaterialColor cor;
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(
@@ -47,7 +62,7 @@ class App extends StatelessWidget {
         ),
         child: TextButton(
           style: TextButton.styleFrom(backgroundColor: cor.shade300),
-          onPressed: () => _playAudio(id),
+          onPressed: onTap,
           child: Text(''),
         ),
       ),
