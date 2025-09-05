@@ -1,52 +1,3 @@
-# Flutter Hello
-
-Projeto de introdução ao desenvolvimento de aplicativos Flutter.
-
-Iremo criar uma aplicativo ao qual iremos praticar layouts báscios com colunas, grids e também vamos executar alguns sons de Xylophone para praticar, alem de criar uma página autoral com sons divertidos de sua escolha.
-
-# Baby Steps
-
-Vamos criar o projeto à Babe Steps paa podemos conhecer a sintaxe básica do Flutter e ganharmos experiencia com o Framework.
-
-1. Crie um novo projeto com suporte à Android e Web.
-2. Adicione o pacote flutter_soloud à sua aplicação pelo terminal.
-```shell
-flutter pub add flutter_soloud
-```
-3. Inclua o arquivos de audio na pasta assets/audio
-4. Execute o comando flutter pub get para baixar as dependências.
-```shell
-flutter pub get
-```
-5. Na pasta lib, crie um arquivo chamado main.dart.
-6. Substitua todo o conteúdo do arquivo main.dart pelo seguinte:
-
-```dart
-import 'package:flutter/material.dart';
-import 'package:flutter_soloud/flutter_soloud.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SoLoud.instance.init();
-  runApp(App());
-}
-
-class App extends StatelessWidget {
-  const App({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(theme: ThemeData.dark(), home: Placeholder());
-  }
-}
-
-```
-4. Execute o aplicativo e verifique se ele está funcionando corretamente.
-5. Crie uma pasta chamada pages na pasta lib.
-6. Crie um arquivo chamado xylophone_page.dart na pasta pages.
-7. Substitua todo o conteúdo do arquivo xylophone_page.dart pelo seguinte:
-
-```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_soloud/flutter_soloud.dart';
 
@@ -126,26 +77,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-```
-8. Substitua todo o conteúdo do arquivo main.dart pelo seguinte:
-
-```dart
-import 'package:flutter/material.dart';
-import 'package:flutter_soloud/flutter_soloud.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SoLoud.instance.init();
-  runApp(App());
-}
-
-class App extends StatelessWidget {
-  const App({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // Neste trecho estamo definindo a página Xylophone como a página principal.
-    return MaterialApp(theme: ThemeData.dark(), home: XylophonePage());
-  }
-}
-
