@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_soloud/flutter_soloud.dart';
 
 class XylophonePage extends StatelessWidget {
   const XylophonePage({super.key});
@@ -11,11 +10,11 @@ class XylophonePage extends StatelessWidget {
   // @return void
   _playAudio(int id) async {
     // Descarta todos os recursos de áudio carregados anteriormente
-    await SoLoud.instance.disposeAllSources();
+    // await SoLoud.instance.disposeAllSources();
     // Carrega o arquivo de áudio correspondente ao id fornecido
-    var asset = await SoLoud.instance.loadAsset('assets/audio/note$id.wav');
+    // var asset = await SoLoud.instance.loadAsset('assets/audio/note$id.wav');
     // Reproduz o áudio carregado
-    await SoLoud.instance.play(asset);
+    // await SoLoud.instance.play(asset);
   }
 
   @override
